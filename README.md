@@ -20,6 +20,12 @@ This takes anywhere from 6min to 9min to load. Inference after init is more "rea
 
 These are all 4_K_M quantization with the exception of TinyLlama using 5_K_M.
 
+### Recommended Models:
+Use the Ollama project. When testing Ollama seems to have better startup times than using llama.cpp directly even when accounting for the Ollama server starting up.
+
+- [Phi-2-DPO](https://huggingface.co/TheBloke/phi-2-dpo-GGUF)
+- [TinyLlama](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF)
+
 ## Installation
 
 This project relies on the following:
