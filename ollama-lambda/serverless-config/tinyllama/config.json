@@ -1,0 +1,5 @@
+{
+    "env": "dev",
+    "domain": "*",
+    "model_path": "/models/tinyllama_5_K_M"
+}

@@ -1,0 +1,23 @@
+service: llamacpp-phi-lambda
+
+custom:
+  config: ${file(config.json)}
+
+provider:
+  name: aws
+  region: us-east-2
+  ecr:
+    images:
+      llamacpp-lambda-phi:
+        path: ../../
+        buildArgs:
+          MODEL_PATH: ${self:custom.config.model_path}
+
+functions:
+  llamacpp-lambda-phi:
+    ephemeralStorageSize: 1280
+    memorySize: 10240
+    timeout: 120
+    url: true
+    image: 
+      name: llamacpp-lambda-phi

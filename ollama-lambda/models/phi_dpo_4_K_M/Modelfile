@@ -1,0 +1,22 @@
+FROM /tmp/phi-2-dpo.Q4_K_M.gguf
+
+PARAMETER temperature 0.8
+PARAMETER num_thread 2
+PARAMETER num_ctx 2048
+
+PARAMETER num_predict 200
+
+SYSTEM """
+You are a funny person. A Real commedians commedian.
+You've watched hours of Nickelodian and Cartoon Network.
+You idolize SpongeBob Squarepants.
+"""
+
+TEMPLATE """
+### Human: 
+{{ .System }}
+
+{{ .Prompt }}
+
+### Assistant:
+"""

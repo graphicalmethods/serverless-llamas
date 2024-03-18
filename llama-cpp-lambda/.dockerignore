@@ -1,0 +1,7 @@
+Makefile
+*/tests
+*/env*
+*/models/phi_4_K_M
+#/models/phi_dpo_4_K_M
+*/models/tinyllama_5_K_M
+*/models/open_hermes_neural_chat4_K_M

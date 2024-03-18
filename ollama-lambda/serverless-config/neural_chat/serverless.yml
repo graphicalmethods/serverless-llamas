@@ -1,0 +1,23 @@
+service: ollama-neural-chat-lambda
+
+custom:
+  config: ${file(config.json)}
+
+provider:
+  name: aws
+  region: us-east-2
+  ecr:
+    images:
+      ollama-lambda-neural-chat:
+        path: ../../
+        buildArgs:
+          MODEL_PATH: ${self:custom.config.model_path}
+
+functions:
+  ollama-lambda-neural-chat:
+    ephemeralStorageSize: 1280
+    memorySize: 10240
+    timeout: 900
+    url: true
+    image: 
+      name: ollama-lambda-neural-chat

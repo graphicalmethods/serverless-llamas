@@ -1,0 +1,5 @@
+{
+    "env": "dev",
+    "domain": "*",
+    "model_path": "/models/open_hermes_neural_chat4_K_M"
+}

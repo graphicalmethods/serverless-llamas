@@ -1,0 +1,5 @@
+{
+    "env": "dev",
+    "domain": "*",
+    "model_path": "/models/phi_dpo_4_K_M"
+}
