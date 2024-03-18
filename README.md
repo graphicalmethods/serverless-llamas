@@ -103,8 +103,7 @@ This will take a few minutes most likely.
 Once deployed there will be a url in the output. Copy this url and run:
 
 ```bash
-curl -H "Content-Type: application/json" <LAMBDA_URL> -d @../../t
-ests/prompt.json
+curl -H "Content-Type: application/json" <LAMBDA_URL> -d @../../tests/prompt.json
 ```
 
 This will invoke the lambda function. On first invocation, there is a substantial warmup period where the model is being loaded. This can take upwards of a minute or more. Often this is around 30s-50s. 
