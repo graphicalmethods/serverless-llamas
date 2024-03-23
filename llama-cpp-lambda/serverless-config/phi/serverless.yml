@@ -13,7 +13,7 @@ provider:
         path: ../../
         buildArgs:
           MODEL_PATH: ${self:custom.config.model_path}
-        platform: linux/amd64
+        platform: linux/arm64
 
 functions:
   llamacpp-lambda-phi:
