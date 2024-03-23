@@ -14,6 +14,7 @@ This takes anywhere from 6min to 9min to load. Inference after init is more "rea
 
 ---
 **2024-03-22 Update**
+
 There now exists an arm branch. Llama.cpp has been updated to build for arm64. Ollama doesn't want to play well with colima and hasn't been modified. So far there seems to be no difference between arm and amd64. 
 
 ### Tested Models
