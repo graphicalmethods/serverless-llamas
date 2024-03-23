@@ -5,7 +5,7 @@ AWS Lambda Implementations of llama.cpp and Ollama for serverless inference.
 
 AWS Lambda has huge potential for deploying serverless LLMs using llama.cpp. There's minimal configuration, inherent scaling, and easy integration with the rest of AWS services. There's also a very generous free tier to help ease the cost of running an LLM.
 
-Phi-2 and TinyLlama are small enough models to provide CPU only inference at "reasonable" inference speed. This is roughly 30s-40s init and 10s-20s for inference in testing. There should be no expectation of using this for chat, batch inference only.
+Phi-2 and TinyLlama are small enough models to provide CPU only inference at "reasonable" inference speed. This is roughly 120+s init and 20s-40s for inference in testing. There should be no expectation of using this for chat, batch inference only.
 
 There is an example in the ollama-lamdba project of using a Mistral 7b model variant: 
 - openhermes-2.5-neural-chat-v3-3-slerp.Q4_K_M.gguf
@@ -112,11 +112,11 @@ Once deployed there will be a url in the output. Copy this url and run:
 curl -H "Content-Type: application/json" <LAMBDA_URL> -d @../../tests/prompt.json
 ```
 
-This will invoke the lambda function. On first invocation, there is a substantial warmup period where the model is being loaded. This can take upwards of a minute or more. Often this is around 30s-50s. 
+This will invoke the lambda function. On first invocation, there is a substantial warmup period where the model is being loaded. This can take upwards of a minute or more. 
 
 Occasionally, on first invocation the lambda will return an Internal Server Error. This means that you've exceeded the lambda function timeout and the model is taking a substantially long time to load. If you invoke again the model should be loaded or reloaded and return a response from the llm.
 
-Subsequent invocations will be faster around 10s-20s for additional prompts. If the lambda function has concurrent invocations the model will be loaded for each concurrency.
+Subsequent invocations will be faster around 20s-40s for additional prompts. If the lambda function has concurrent invocations the model will be loaded for each concurrency.
 
 Additional changes can be pushed using the same sls command:
 ```bash
