@@ -12,6 +12,10 @@ There is an example in the ollama-lamdba project of using a Mistral 7b model var
 
 This takes anywhere from 6min to 9min to load. Inference after init is more "reasonable" and around 30s-40s in testing. 
 
+---
+**2024-03-22 Update**
+There now exists an arm branch. Llama.cpp has been updated to build for arm64. Ollama doesn't want to play well with colima and hasn't been modified. So far there seems to be no difference between arm and amd64. 
+
 ### Tested Models
 - [Phi-2](https://huggingface.co/TheBloke/phi-2-GGUF)
 - [Phi-2-DPO](https://huggingface.co/TheBloke/phi-2-dpo-GGUF)
