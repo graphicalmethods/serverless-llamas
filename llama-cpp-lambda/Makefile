@@ -13,12 +13,12 @@ requirements:
 
 .PHONY: docker-build
 docker-build: requirements
-	@docker build --platform linux/amd64 --build-arg MODEL_PATH=${MODEL_PATH} . -t ${IMAGE_TAG}
+	@docker build --platform linux/arm64 --build-arg MODEL_PATH=${MODEL_PATH} . -t ${IMAGE_TAG}
 
 .PHONY: docker-run
 docker-run:
 	@docker run --rm -p 9000:8080 \
-		--platform linux/amd64 \
+		--platform linux/arm64 \
 		-v ~/.aws-lambda-rie:/aws-lambda \
 		${IMAGE_TAG}
 

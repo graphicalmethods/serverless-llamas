@@ -1,6 +1,6 @@
 ARG FUNCTION_DIR=/var/task
 
-FROM python:3.11.7-bookworm as base_image
+FROM arm64v8/python:3.11.7-bookworm as base_image
 
 ARG MODEL_PATH
 ARG MODEL_GGUF
@@ -24,7 +24,7 @@ COPY ${MODEL_PATH} ${FUNCTION_DIR}
 COPY entrypoint.sh ${FUNCTION_DIR}
 RUN chmod +x ${FUNCTION_DIR}/entrypoint.sh
 
-FROM python:3.11.7-slim-bookworm
+FROM arm64v8/python:3.11.7-slim-bookworm
 
 ARG FUNCTION_DIR
 WORKDIR ${FUNCTION_DIR}

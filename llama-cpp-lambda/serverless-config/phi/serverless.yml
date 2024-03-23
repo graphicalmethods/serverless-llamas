@@ -6,18 +6,20 @@ custom:
 provider:
   name: aws
   region: us-east-2
+  architecture: arm64
   ecr:
     images:
       llamacpp-lambda-phi:
         path: ../../
         buildArgs:
           MODEL_PATH: ${self:custom.config.model_path}
+        platform: linux/amd64
 
 functions:
   llamacpp-lambda-phi:
     ephemeralStorageSize: 1280
     memorySize: 10240
-    timeout: 120
+    timeout: 240
     url: true
     image: 
       name: llamacpp-lambda-phi
